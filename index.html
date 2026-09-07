@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="StudyFlow - A simple student productivity dashboard">
+    <title>StudyFlow | Student Productivity Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <span>📚</span> StudyFlow
+        </div>
+
+        <nav>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#tasks">Tasks</a>
+            <a href="#timer">Timer</a>
+            <a href="#notes">Notes</a>
+        </nav>
+
+        <button id="themeBtn" class="theme-btn">🌙</button>
+    </header>
+
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section class="hero" id="dashboard">
+
+            <div>
+                <p class="small-title">STUDENT PRODUCTIVITY</p>
+
+                <h1>Study smarter.<br>
+                    <span>Achieve more.</span>
+                </h1>
+
+                <p class="hero-text">
+                    Organize your study tasks, focus with a timer,
+                    track your progress and keep your notes in one place.
+                </p>
+
+                <a href="#tasks" class="primary-btn">
+                    Start Studying →
+                </a>
+            </div>
+
+            <div class="hero-card">
+                <div class="hero-icon">🎯</div>
+                <h3>Today's Goal</h3>
+                <div class="goal-number">
+                    <span id="goalPercent">0</span>%
+                </div>
+
+                <div class="progress-bar">
+                    <div id="goalProgress"></div>
+                </div>
+
+                <p>Keep going!</p>
+            </div>
+
+        </section>
+
+
+        <!-- STATISTICS -->
+        <section class="stats">
+
+            <div class="stat-card">
+                <div class="stat-icon">📋</div>
+                <div>
+                    <h3 id="totalTasks">0</h3>
+                    <p>Total Tasks</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div>
+                    <h3 id="completedTasks">0</h3>
+                    <p>Completed</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">⏱️</div>
+                <div>
+                    <h3 id="studyTime">0</h3>
+                    <p>Minutes Studied</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">🔥</div>
+                <div>
+                    <h3>1</h3>
+                    <p>Day Streak</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- TASK SECTION -->
+        <section class="section" id="tasks">
+
+            <div class="section-heading">
+                <div>
+                    <p class="small-title">PLAN YOUR DAY</p>
+                    <h2>Study Tasks</h2>
+                </div>
+
+                <button class="add-btn" onclick="addTask()">
+                    + Add Task
+                </button>
+            </div>
+
+            <div class="task-container">
+
+                <div class="task-input">
+                    <input
+                        type="text"
+                        id="taskInput"
+                        placeholder="Enter a study task..."
+                    >
+
+                    <select id="priority">
+                        <option value="High">High Priority</option>
+                        <option value="Medium" selected>Medium Priority</option>
+                        <option value="Low">Low Priority</option>
+                    </select>
+
+                    <button onclick="addTask()">Add</button>
+                </div>
+
+                <div id="taskList"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TIMER -->
+        <section class="section" id="timer">
+
+            <div class="section-heading">
+                <div>
+                    <p class="small-title">FOCUS MODE</p>
+                    <h2>Pomodoro Timer</h2>
+                </div>
+            </div>
+
+            <div class="timer-card">
+
+                <p>Focus for 25 minutes</p>
+
+                <div id="timerDisplay">25:00</div>
+
+                <div class="timer-buttons">
+                    <button onclick="startTimer()" class="primary-btn">
+                        ▶ Start
+                    </button>
+
+                    <button onclick="pauseTimer()" class="secondary-btn">
+                        ⏸ Pause
+                    </button>
+
+                    <button onclick="resetTimer()" class="secondary-btn">
+                        ↻ Reset
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- NOTES -->
+        <section class="section" id="notes">
+
+            <div class="section-heading">
+                <div>
+                    <p class="small-title">QUICK NOTES</p>
+                    <h2>My Notes</h2>
+                </div>
+            </div>
+
+            <div class="notes-card">
+
+                <textarea
+                    id="notesArea"
+                    placeholder="Write your study notes here..."
+                ></textarea>
+
+                <button onclick="saveNotes()" class="primary-btn">
+                    💾 Save Notes
+                </button>
+
+                <p id="savedMessage"></p>
+
+            </div>
+
+        </section>
+
+
+        <!-- FEATURES -->
+        <section class="features">
+
+            <div class="feature">
+                <span>📋</span>
+                <h3>Task Management</h3>
+                <p>Create and complete your daily study tasks.</p>
+            </div>
+
+            <div class="feature">
+                <span>⏱️</span>
+                <h3>Focus Timer</h3>
+                <p>Use the Pomodoro technique to improve concentration.</p>
+            </div>
+
+            <div class="feature">
+                <span>📊</span>
+                <h3>Progress Tracking</h3>
+                <p>See how much of your daily work is completed.</p>
+            </div>
+
+            <div class="feature">
+                <span>💾</span>
+                <h3>Browser Storage</h3>
+                <p>Your tasks and notes remain saved in your browser.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>© 2026 StudyFlow • Built for Frontend Web Development Hackathon 2026</p>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
